@@ -36,6 +36,9 @@ function createCard(emoji, index) {
   card.dataset.emoji = emoji;
   card.dataset.index = index;
 
+  const cardInner = document.createElement('div');
+  cardInner.classList.add('card-inner');
+
   const front = document.createElement('div');
   front.classList.add('front');
   front.textContent = emoji;
@@ -44,8 +47,9 @@ function createCard(emoji, index) {
   back.classList.add('back');
   back.textContent = '❓';
 
-  card.appendChild(back);
-  card.appendChild(front);
+  cardInner.appendChild(front);
+  cardInner.appendChild(back);
+  card.appendChild(cardInner);
 
   card.addEventListener('click', () => flipCard(card));
   card.addEventListener('keydown', (e) => {
@@ -110,4 +114,5 @@ function shuffle(array) {
 
 newGameBtn.addEventListener('click', startGame);
 startGame();
+
 
