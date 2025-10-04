@@ -31,7 +31,7 @@ function startGame() {
 function createCard(emoji, index) {
   const card = document.createElement('div');
   card.classList.add('card');
-  card.setAttribute('tabindex', '0');
+  card.setAttribute('tabindex', '0'); // gjør kortet fokuserbart
   card.setAttribute('aria-label', 'Skjult kort');
   card.dataset.emoji = emoji;
   card.dataset.index = index;
@@ -52,12 +52,6 @@ function createCard(emoji, index) {
   card.appendChild(cardInner);
 
   card.addEventListener('click', () => flipCard(card));
-  card.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      flipCard(card);
-    }
-  });
 
   return card;
 }
@@ -113,6 +107,19 @@ function shuffle(array) {
 }
 
 newGameBtn.addEventListener('click', startGame);
+
+// ✅ Global tastaturlytter for Enter/Space på fokuserte kort
+document.addEventListener('keydown', (e) => {
+  const activeElement = document.activeElement;
+  if (!activeElement.classList.contains('card')) return;
+
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    flipCard(activeElement);
+  }
+});
+
 startGame();
+
 
 

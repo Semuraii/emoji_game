@@ -6,7 +6,7 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 1rem;
-  background: #f0f0f0;
+  background: #b4dc7f;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +21,7 @@ button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   cursor: pointer;
+  background: #dab6c4;
 }
 
 #status {
@@ -41,6 +42,8 @@ button {
   height: 80px;
   perspective: 1000px;
   cursor: pointer;
+  border-radius: 8px;
+  outline: none;
 }
 
 .card-inner {
@@ -55,7 +58,8 @@ button {
   transform: rotateY(180deg);
 }
 
-.card .front, .card .back {
+.card .front,
+.card .back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -65,12 +69,12 @@ button {
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  background: white;
+  background: #faf3dd;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .card .back {
-  background: #eee;
+  background: #feffa5;
 }
 
 .card .front {
@@ -85,17 +89,20 @@ button {
   font-size: 1.2rem;
 }
 
+/* ✅ Synlig fokusstil for tastaturnavigasjon */
 .card:focus {
-  outline: 2px solid blue;
+  outline: 3px solid #e4256e;
+  box-shadow: 0 0 0 3px rgba(228, 37, 110, 0.3);
 }
 
 #victory {
   margin-top: 1rem;
   text-align: center;
-  background: #d4ffd4;
+  background: #ffe74c;
   padding: 1rem;
   border-radius: 8px;
 }
 
+ 
 
 
