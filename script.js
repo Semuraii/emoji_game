@@ -109,6 +109,5 @@ function shuffle(array) {
 }
 
 newGameBtn.addEventListener('click', startGame);
-
-// Start første runde
 startGame();
+
